@@ -136,6 +136,7 @@ export class MainComponent implements OnInit {
   // }
 
   finalizar(){
+    
     this.imagenSeleccionada.nombre = this.imagenSeleccionada.id
     this.jugando = false;
     this.horaFinal = new Date();
