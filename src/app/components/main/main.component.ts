@@ -11,6 +11,12 @@ export class Personaje{
   ext: string | undefined;
 }
 
+export class Imagen{
+  id: string | undefined;
+  nombre: string | undefined;
+  ext: string | undefined;
+}
+
 export class Puntuacion{
   nombre: string | undefined;
   personaje: string | undefined;
@@ -25,11 +31,13 @@ export class Puntuacion{
 })
 export class MainComponent implements OnInit {
 
+  ms: number = 3000;
   horaInicial: Date;
   horaFinal: Date;
   jugando: boolean = false;
 
   personajeSeleccionado: Personaje;
+  imagenSeleccionada: Imagen;
   pathImage: string = '';
   
   personajes: Personaje[] = [{id:"1", nombre:"Panteras rosas", ext:".png"},
@@ -67,11 +75,26 @@ export class MainComponent implements OnInit {
   {id:"33", nombre:"Tablón", ext:".png"},
   {id:"34", nombre:"Teri", ext:".jpg"}]
 
+  imagenes: Personaje[] = [{id:"1", nombre:"1", ext:".jpg"},
+  {id:"2", nombre:"2", ext:".jpg"},
+  {id:"3", nombre:"3", ext:".jpg"},
+  {id:"4", nombre:"4", ext:".jpg"},
+  {id:"5", nombre:"5", ext:".jpg"},
+  {id:"6", nombre:"6", ext:".png"},
+  {id:"7", nombre:"7", ext:".jpg"},
+  {id:"8", nombre:"8", ext:".jpg"},
+  {id:"9", nombre:"9", ext:".jgp"},
+  {id:"10", nombre:"10", ext:".jpg"},
+  {id:"11", nombre:"1", ext:".png"},
+  {id:"12", nombre:"12", ext:".jpg"},
+  {id:"13", nombre:"13", ext:".jpeg"}]
+
   constructor(public storageServ: StorageService,private router: Router, public dialog: MatDialog) {
     this.horaInicial = new Date();
     this.horaFinal = new Date();
 
     this.personajeSeleccionado = new Personaje;
+    this.imagenSeleccionada = new Imagen;
    }
 
   ngOnInit(): void {
@@ -83,13 +106,37 @@ export class MainComponent implements OnInit {
   }
 
   iniciar(){
+    this.findImagen();
     this.jugando = true;
     this.horaInicial = new Date();
     console.log('Hora inicial', this.horaInicial);
-    this.findPersonaje();
   }
 
+  // finalizar(){
+  //   this.jugando = false;
+  //   this.horaFinal = new Date();
+  //   console.log('Hora final', this.horaFinal);
+    
+  //   var diffMs = (+this.horaFinal - +this.horaInicial); // milliseconds between now & Christmas
+  //   let tiempoTotal = this.convertMsToTime(diffMs)
+  //   console.log('Milisegundos de diferencia',diffMs)
+  //   console.log('Tiempo total',this.convertMsToTime(diffMs))
+  //   Swal.fire({
+  //     text: 'Tu tiempo encontrando a ' + this.personajeSeleccionado.nombre + ' fue de: ' + tiempoTotal,
+  //     icon: 'info'
+  //   })
+
+  //   var puntuacion = new Puntuacion();
+  //   puntuacion.nombre = this.storageServ.getKey('jugador') ?? ''
+  //   puntuacion.tiempo = tiempoTotal
+  //   puntuacion.milisegundos = diffMs
+  //   puntuacion.personaje = this.personajeSeleccionado.nombre
+
+  //   this.storageServ.setArray(puntuacion);
+  // }
+
   finalizar(){
+    this.imagenSeleccionada.nombre = this.imagenSeleccionada.id
     this.jugando = false;
     this.horaFinal = new Date();
     console.log('Hora final', this.horaFinal);
@@ -99,7 +146,7 @@ export class MainComponent implements OnInit {
     console.log('Milisegundos de diferencia',diffMs)
     console.log('Tiempo total',this.convertMsToTime(diffMs))
     Swal.fire({
-      text: 'Tu tiempo encontrando a ' + this.personajeSeleccionado.nombre + ' fue de: ' + tiempoTotal,
+      text: 'Tu tiempo dibujando la imagen N° ' + this.imagenSeleccionada.nombre + ' fue de: ' + tiempoTotal,
       icon: 'info'
     })
 
@@ -107,7 +154,7 @@ export class MainComponent implements OnInit {
     puntuacion.nombre = this.storageServ.getKey('jugador') ?? ''
     puntuacion.tiempo = tiempoTotal
     puntuacion.milisegundos = diffMs
-    puntuacion.personaje = this.personajeSeleccionado.nombre
+    puntuacion.personaje = this.imagenSeleccionada.nombre
 
     this.storageServ.setArray(puntuacion);
   }
@@ -136,10 +183,23 @@ export class MainComponent implements OnInit {
   }
 
   findPersonaje(){
-    const pathAssets: string = '../../../assets/img/';
+    const pathAssets: string = '../../../assets/img';
     this.personajeSeleccionado = this.personajes[this.getRandomInt(this.personajes.length)]
     this.pathImage = pathAssets + this.personajeSeleccionado.id + ' ' + this.personajeSeleccionado.nombre + this.personajeSeleccionado.ext
     console.log(this.personajeSeleccionado);
+  }
+
+  findImagen(){
+    const pathAssets: string = '../../../assets/img/memoria';
+    this.imagenSeleccionada = this.imagenes[this.getRandomInt(this.imagenes.length)]
+    this.pathImage = pathAssets + this.personajeSeleccionado.nombre + this.personajeSeleccionado.ext
+    console.log(this.imagenSeleccionada);
+    setTimeout(() => 
+    {
+      this.imagenSeleccionada.nombre = '0';
+    },
+    this.ms);
+    
   }
 
   getRandomInt(max: number) {
@@ -148,5 +208,9 @@ export class MainComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(PuntuacionComponent);
+  }
+
+  async delay(ms: number) {
+    return await new Promise( resolve => setTimeout(resolve, ms) );
   }
 }

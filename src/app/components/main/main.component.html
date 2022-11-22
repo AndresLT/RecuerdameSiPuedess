@@ -6,38 +6,73 @@
             <p class="nav-title">{{storageServ.getKey('jugador')}}</p>
         </div>
         <div class="buttons">
+            <mat-form-field appearance="fill">
+                <mat-label>Segundos</mat-label>
+                <mat-select [(ngModel)]="ms" name="ms">
+                  <mat-option value="1000">
+                    1
+                  </mat-option>
+                  <mat-option value="2000">
+                    2
+                  </mat-option>
+                  <mat-option value="3000">
+                    3
+                  </mat-option>
+                  <mat-option value="4000">
+                    4
+                  </mat-option>
+                  <mat-option value="5000">
+                    5
+                  </mat-option>
+                  <mat-option value="6000">
+                    6
+                  </mat-option>
+                  <mat-option value="7000">
+                    7
+                  </mat-option>
+                  <mat-option value="8000">
+                    8
+                  </mat-option>
+                  <mat-option value="9000">
+                    9
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
             <button mat-raised-button color="accent" (click)="openDialog()">Puntuaciones</button>
             <button mat-raised-button color="accent" (click)="cambiarJugador()">Cambiar de jugador</button>
         </div>
     </div>
     
     <div class="content">
-        <div class="imagen-principal">
-        </div>
+        <!-- <div class="imagen-principal">
+        </div> -->
         <div class="panel">
             <div class="reloj">
-                <p>Al hacer click en "Iniciar" se mostrará un personaje que deberás buscar en la imagen de la izquierda.</p>
-                <p>Cuando lo encuentres debes dar click en "Finalizar", se mostrará el tiempo que te tomó encontrarlo.</p>
+                <p>Al hacer click en "Iniciar" se mostrará una imágen durante {{ms/1000}} segundos.</p>
+                <p>Debes memorizar cada detalle y recrear la imágen por medio de un dibujo en el menor tiempo posible.</p>
                 <div class="nombre-personaje">
                     <button mat-raised-button color="accent" *ngIf="!jugando" (click)="iniciar()" style="width: 90px;">Iniciar</button>
                     <button mat-raised-button color="accent" *ngIf="jugando" (click)="finalizar()" style="width: 90px;">Finalizar</button>
-                    <p style="margin: 0;">{{this.personajeSeleccionado.nombre}}</p>
+                    <!-- <p style="margin: 0;">{{this.personajeSeleccionado.nombre}}</p> -->
                 </div>
                 <!-- <img src="{{pathImage}}" *ngIf="pathImage" alt="" width="100%"> -->
-                <div class="image-container image-1" *ngIf="this.personajeSeleccionado.id == '1'"></div>
-                <div class="image-container image-2" *ngIf="this.personajeSeleccionado.id == '2'" ></div>
-                <div class="image-container image-3" *ngIf="this.personajeSeleccionado.id == '3'" ></div>
-                <div class="image-container image-4" *ngIf="this.personajeSeleccionado.id == '4'" ></div>
-                <div class="image-container image-5" *ngIf="this.personajeSeleccionado.id == '5'" ></div>
-                <div class="image-container image-6" *ngIf="this.personajeSeleccionado.id == '6'" ></div>
-                <div class="image-container image-7" *ngIf="this.personajeSeleccionado.id == '7'" ></div>
-                <div class="image-container image-8" *ngIf="this.personajeSeleccionado.id == '8'" ></div>
-                <div class="image-container image-9" *ngIf="this.personajeSeleccionado.id == '9'" ></div>
-                <div class="image-container image-10" *ngIf="this.personajeSeleccionado.id == '10'" ></div>
-                <div class="image-container image-11" *ngIf="this.personajeSeleccionado.id == '11'" ></div>
-                <div class="image-container image-12" *ngIf="this.personajeSeleccionado.id == '12'" ></div>
-                <div class="image-container image-13" *ngIf="this.personajeSeleccionado.id == '13'" ></div>
-                <div class="image-container image-14" *ngIf="this.personajeSeleccionado.id == '14'" ></div>
+                <div class="image-container image-1" *ngIf="this.imagenSeleccionada.nombre == '1'"></div>
+                <div class="image-container image-2" *ngIf="this.imagenSeleccionada.nombre == '2'" ></div>
+                <div class="image-container image-3" *ngIf="this.imagenSeleccionada.nombre == '3'" ></div>
+                <div class="image-container image-4" *ngIf="this.imagenSeleccionada.nombre == '4'" ></div>
+                <div class="image-container image-5" *ngIf="this.imagenSeleccionada.nombre == '5'" ></div>
+                <div class="image-container image-6" *ngIf="this.imagenSeleccionada.nombre == '6'" ></div>
+                <div class="image-container image-7" *ngIf="this.imagenSeleccionada.nombre == '7'" ></div>
+                <div class="image-container image-8" *ngIf="this.imagenSeleccionada.nombre == '8'" ></div>
+                <div class="image-container image-9" *ngIf="this.imagenSeleccionada.nombre == '9'" ></div>
+                <div class="image-container image-10" *ngIf="this.imagenSeleccionada.nombre == '10'" ></div>
+                <div class="image-container image-11" *ngIf="this.imagenSeleccionada.nombre == '11'" ></div>
+                <div class="image-container image-12" *ngIf="this.imagenSeleccionada.nombre == '12'" ></div>
+                <div class="image-container image-13" *ngIf="this.imagenSeleccionada.nombre == '13'" ></div>
+                <div class="image-container" *ngIf="this.imagenSeleccionada.nombre == '0'" >
+                    <p class="dibuja">DIBUJA!</p>
+                </div>
+                <!-- <div class="image-container image-14" *ngIf="this.personajeSeleccionado.id == '14'" ></div>
                 <div class="image-container image-15" *ngIf="this.personajeSeleccionado.id == '15'" ></div>
                 <div class="image-container image-16" *ngIf="this.personajeSeleccionado.id == '16'" ></div>
                 <div class="image-container image-17" *ngIf="this.personajeSeleccionado.id == '17'" ></div>
@@ -57,7 +92,7 @@
                 <div class="image-container image-31" *ngIf="this.personajeSeleccionado.id == '31'" ></div>
                 <div class="image-container image-32" *ngIf="this.personajeSeleccionado.id == '32'" ></div>
                 <div class="image-container image-33" *ngIf="this.personajeSeleccionado.id == '33'" ></div>
-                <div class="image-container image-34" *ngIf="this.personajeSeleccionado.id == '34'" ></div>
+                <div class="image-container image-34" *ngIf="this.personajeSeleccionado.id == '34'" ></div> -->
             </div>
         </div>
     </div>
