@@ -39,6 +39,8 @@ export class MainComponent implements OnInit {
   personajeSeleccionado: Personaje;
   imagenSeleccionada: Imagen;
   pathImage: string = '';
+
+  disabled: boolean = false;
   
   personajes: Personaje[] = [{id:"1", nombre:"Panteras rosas", ext:".png"},
   {id:"2", nombre:"Burro", ext:".png"},
@@ -108,7 +110,7 @@ export class MainComponent implements OnInit {
   iniciar(){
     this.findImagen();
     this.jugando = true;
-    this.horaInicial = new Date();
+    // this.horaInicial = new Date();
     console.log('Hora inicial', this.horaInicial);
   }
 
@@ -191,6 +193,7 @@ export class MainComponent implements OnInit {
   }
 
   findImagen(){
+    this.disabled = true;
     const pathAssets: string = '../../../assets/img/memoria';
     this.imagenSeleccionada = this.imagenes[this.getRandomInt(this.imagenes.length)]
     this.pathImage = pathAssets + this.personajeSeleccionado.nombre + this.personajeSeleccionado.ext
@@ -198,6 +201,8 @@ export class MainComponent implements OnInit {
     setTimeout(() => 
     {
       this.imagenSeleccionada.nombre = '0';
+      this.disabled = false;
+      this.horaInicial = new Date();
     },
     this.ms);
     

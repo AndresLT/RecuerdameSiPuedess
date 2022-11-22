@@ -52,7 +52,7 @@
                 <p>Debes memorizar cada detalle y recrear la imágen por medio de un dibujo en el menor tiempo posible.</p>
                 <div class="nombre-personaje">
                     <button mat-raised-button color="accent" *ngIf="!jugando" (click)="iniciar()" style="width: 90px;">Iniciar</button>
-                    <button mat-raised-button color="accent" *ngIf="jugando" (click)="finalizar()" style="width: 90px;">Finalizar</button>
+                    <button mat-raised-button color="accent" *ngIf="jugando" (click)="finalizar()" [disabled]="disabled" style="width: 90px;">Finalizar</button>
                     <!-- <p style="margin: 0;">{{this.personajeSeleccionado.nombre}}</p> -->
                 </div>
                 <!-- <img src="{{pathImage}}" *ngIf="pathImage" alt="" width="100%"> -->
