@@ -136,7 +136,7 @@ export class MainComponent implements OnInit {
   // }
 
   finalizar(){
-    
+
     this.imagenSeleccionada.nombre = this.imagenSeleccionada.id
     this.jugando = false;
     this.horaFinal = new Date();
@@ -211,7 +211,4 @@ export class MainComponent implements OnInit {
     this.dialog.open(PuntuacionComponent);
   }
 
-  async delay(ms: number) {
-    return await new Promise( resolve => setTimeout(resolve, ms) );
-  }
 }
