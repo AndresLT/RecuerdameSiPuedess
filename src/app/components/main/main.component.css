@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+}
+
+
+.context {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 10;
+    flex-direction: column;
+}
+
+.nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title{
+    color: white;
+    font-weight: 500;
+    font-size: 1.4em;
+    margin: 0;
+}
+
+.jugador{
+    display: flex;
+    gap: 10px;
+
+}
+
+.content{
+    display: flex;
+    width: 100%;
+    height: inherit;
+    
+}
+
+.imagen-principal{
+    width: 70%;
+    background-image: url('../../../assets/img/Imagen dibujos animados.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.panel{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border: 1px black solid;
+    border-radius: 20px;
+    padding: 10px;
+    
+}
+
+.reloj{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.nombre-personaje{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.image-container{
+    width: 100%;
+    height: 230px;
+}
+
+.image-1{
+    background-image: url('../../../assets/img/1 Panteras rosas.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+
+.image-2{
+    background-image: url('../../../assets/img/2 Burro.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-3{
+    background-image: url('../../../assets/img/3 Burbujas.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-4{
+    background-image: url('../../../assets/img/4 Goku.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-5{
+    background-image: url('../../../assets/img/5 Dr.Doofenshmirtz.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-6{
+    background-image: url('../../../assets/img/6 Catdog.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-7{
+    background-image: url('../../../assets/img/7 Puro hueso.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-8{
+    background-image: url('../../../assets/img/8 Goten.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-9{
+    background-image: url('../../../assets/img/9 Mandy.JPG'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-10{
+    background-image: url('../../../assets/img/10 Remy.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-11{
+    background-image: url('../../../assets/img/11 Pocoyó.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-12{
+    background-image: url('../../../assets/img/12 Coraje.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-13{
+    background-image: url('../../../assets/img/13 Daria.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-14{
+    background-image: url('../../../assets/img/14 Jorge el curioso.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-15{
+    background-image: url('../../../assets/img/15 Martha, la perra que habla.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-16{
+    background-image: url('../../../assets/img/16 Gohan.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-17{
+    background-image: url('../../../assets/img/17 Pluto.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-18{
+    background-image: url('../../../assets/img/18 Tom.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-19{
+    background-image: url('../../../assets/img/19 Cat.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-20{
+    background-image: url('../../../assets/img/20 Gato con botas.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-21{
+    background-image: url('../../../assets/img/21 Pikachu.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-22{
+    background-image: url('../../../assets/img/22 Almejandra.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-23{
+    background-image: url('../../../assets/img/23 Coco.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-24{
+    background-image: url('../../../assets/img/24 Blue.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-25{
+    background-image: url('../../../assets/img/25 Speedy Gonzalez.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-26{
+    background-image: url('../../../assets/img/26 Bellota.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-27{
+    background-image: url('../../../assets/img/27 Tiro al blanco.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-28{
+    background-image: url('../../../assets/img/28 Mojo Jojo.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-29{
+    background-image: url('../../../assets/img/29 Lotso.JPG'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-30{
+    background-image: url('../../../assets/img/30 Pokebolas.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-31{
+    background-image: url('../../../assets/img/31 Isabella Shapiro.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-32{
+    background-image: url('../../../assets/img/32 Nermal.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-33{
+    background-image: url('../../../assets/img/33 Tablón.png'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}
+.image-34{
+    background-image: url('../../../assets/img/34 Teri.jpg'); 
+    background-repeat: no-repeat; background-size: contain;
+    background-position: center;
+}

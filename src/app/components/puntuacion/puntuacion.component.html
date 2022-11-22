@@ -1,0 +1,30 @@
+<div class="table-container">
+    <h3 style="font-weight: 500; text-align: center;">Puntuaciones</h3>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="personaje">
+          <th mat-header-cell *matHeaderCellDef> Personaje </th>
+          <td mat-cell *matCellDef="let element"> {{element.personaje}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="tiempo">
+          <th mat-header-cell *matHeaderCellDef> Tiempo </th>
+          <td mat-cell *matCellDef="let element"> {{element.tiempo}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="container__item">
+		<div class="one">
+			<h1>Recuérdame si puedes!</h1>
+		</div>
+		<form class="form" [formGroup]="nameForm" style="margin-top: 15px;">
+			<input type="email" class="form__field" formControlName="name" placeholder="Ingresa tu nombre para empezar a jugar..." />
+			<button type="button" class="btn btn--primary btn--inside uppercase" (click)="play()">Jugar</button>
+		</form>
+	</div>
